@@ -92,6 +92,7 @@ mount -t efivarfs efivarfs $LINUX/sys/firmware/efi/efivars
 test -L /dev/shm && rm /dev/shm && mkdir /dev/shm 
 mount --types tmpfs --options nosuid,nodev,noexec shm /dev/shm 
 chmod 1777 /dev/shm
+cp /etc/resolv.conf $LINUX/etc
 echo -e "${LTGREEN}---------${LTBLUE}---------${WHITE}About to chroot${LTBLUE}---------${LTGREEN}------------${NC}"
 chroot $LINUX /bin/bash --login
 exit 0
